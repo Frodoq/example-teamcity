@@ -26,7 +26,7 @@
 9. Создал отдельную ветку feature/add_reply в репозитории.
 10. Напишите новый метод для класса Welcomer: метод должен возвращать произвольную реплику, содержащую слово hunter.
 
-'''
+```
 package plaindoll;
 
 public class Welcomer{
@@ -46,14 +46,55 @@ public class Welcomer{
 		return "Please take care of yoursalf, hunter.";
   }
 }
-'''
-11. 
-Дополните тест для нового метода на поиск слова hunter в новой реплике.
-Сделайте push всех изменений в новую ветку репозитория.
-Убедитесь, что сборка самостоятельно запустилась, тесты прошли успешно.
-Внесите изменения из произвольной ветки feature/add_reply в master через Merge.
-Убедитесь, что нет собранного артефакта в сборке по ветке master.
-Настройте конфигурацию так, чтобы она собирала .jar в артефакты сборки.
-Проведите повторную сборку мастера, убедитесь, что сбора прошла успешно и артефакты собраны.
-Проверьте, что конфигурация в репозитории содержит все настройки конфигурации из teamcity.
-В ответе пришлите ссылку на репозиторий.
+```
+11. Дополните тест для нового метода на поиск слова hunter в новой реплике.
+    
+```
+package plaindoll;
+
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class WelcomerTest {
+	
+	private Welcomer welcomer = new Welcomer();
+
+	@Test
+	public void welcomerSaysWelcome() {
+		assertThat(welcomer.sayWelcome(), containsString("Welcome"));
+	}
+	@Test
+	public void welcomerSaysFarewell() {
+		assertThat(welcomer.sayFarewell(), containsString("Farewell"));
+	}
+	@Test
+	public void welcomerSaysHunter() {
+		assertThat(welcomer.sayWelcome(), containsString("hunter"));
+		assertThat(welcomer.sayFarewell(), containsString("hunter"));
+	}
+	@Test
+	public void welcomerSaysSilver(){
+		assertThat(welcomer.sayNeedGold(), containsString("gold"));
+	}
+	@Test
+	public void welcomerSaysSomething(){
+		assertThat(welcomer.saySome(), containsString("something"));
+	}
+	@Test
+	public void welcomernetSaysHunter(){
+		assertThat(welcomer.sayHunter(), containsString("hunter"));
+	}
+}
+```
+12. Сделал push всех изменений в новую ветку репозитория.
+13. Сборка самостоятельно запустилась, тесты прошли успешно.
+14. Внесите изменения из произвольной ветки feature/add_reply в master через Merge. +
+15. Убедитесь, что нет собранного артефакта в сборке по ветке master. +
+16. Настройте конфигурацию так, чтобы она собирала .jar в артефакты сборки. +
+17. Проведите повторную сборку мастера, убедитесь, что сбора прошла успешно и артефакты собраны. +
+18. Проверьте, что конфигурация в репозитории содержит все настройки конфигурации из teamcity. +
+19. В ответе пришлите ссылку на репозиторий.
+ https://github.com/Frodoq/example-teamcity/tree/master/.teamcity
+
