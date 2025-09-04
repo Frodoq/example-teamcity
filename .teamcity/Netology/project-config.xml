@@ -10,7 +10,7 @@
         <param name="enabled" value="true" />
         <param name="ignoreChangesInDependenciesAndVcsSettings" value="false" />
         <param name="rootId" value="Netology_HttpsGithubComSokolkovexampleTeamcityGitRefsHeadsMaster" />
-        <param name="showChanges" value="false"  />
+        <param name="showChanges" value="false" />
       </parameters>
     </extension>
   </project-extensions>
